@@ -17,7 +17,7 @@
 				</div>
     			</div>
 		</div>
-		<form action="/" method="POST">
+		<form action="submitGuess" method="POST">
 		<h1><center><label for="guess">Guess:</label>
 			<input id="guess" placeholder="enter text" style="height:50px; width:100px;" type="text" minlength="1" name="guess"></input>
 		</center></h1>
@@ -31,46 +31,14 @@
 		<br />
 		</form>
 
-		<div class="box" id="target" style="opacity: 0.9;" >
-			{% for guess in guesses %}
-			<div2><center>
-				<p> {{guess}} </p>
-				<!--
-				<table style="background-color: white;width: 100%;border-radius: 50px;">
-					<tr>
-						<td style="width: 33%;">
-							<a href="{{game.URL}}">
-							<img id="game_image" style="width: 90%;max-width: 90%;max-height: 90%;border-radius: 10%;" src="{{game.Picture}}" alt="No Image" >
-							</a>
-						</td>
-						<td style="width: 50%;">
-							<h1 style="color: black;"> {{game.Title}} - {{game.Category}} </h1>
-							<p style="text-shadow: 0px 0px #FF0000;line-height: 1.5"> {{game.Description}} </p>
-							<p style="text-shadow: 0px 0px #FF0000;">Players:{{game.Minplayers}}-{{game.Maxplayers}} </p>
-							<p style="text-shadow: 0px 0px #FF0000;">Time:{{game.Time}}min </p>
-							<p style="text-shadow: 0px 0px #FF0000;">Price:${{game.Price}} </p>
-							
-						</td>
-						<td style="width: 17%;">
-							<center>
-								<form action="{{game.URL}}" method="get" target="_blank">
-         							<button type="submit">Play</button>
-         						</form>
-								<br>
-								<p> {{game.Format}} </p>
-							</center>
-							
-							
-						</td>
-					</tr>
-				</table> -->
-			</center></div2>
-			{% endfor %}
-
-		{% endif %}
-
-		{% endif %}
-
+        {% if haveGuesses %}
+        <h2>Guesses:</h2>            
+        {% endif %}
+        {% for guess in guesses %}
+        <div2><center>
+            <p> {{guess}} </p>
+        </center></div2>
+        {% endfor %}
 
 	</body>
 </html>

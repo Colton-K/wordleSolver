@@ -25,12 +25,13 @@ def getIP():
 @app.route("/")
 def index():
     guesses = solver.getCandidates(5)
-    return render_template(base, guesses=guesses)
+    return render_template(base, guesses=guesses, haveGuesses=(len(guesses)>0))
 
 @app.route("/submitGuess", methods=["POST"])
 def submitGuess():
     guess = request.form["guess"]
     score = request.form["score"]
+    print(f"Received guess, score: {guess} {score}")
     solver.inputGuess(guess, score)
 
     return index()
@@ -43,6 +44,7 @@ def reset():
     return index()
 
 def main():
+    solver.loadWords()
     app.run(host=getIP(), port=80)
     pass
 
