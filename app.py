@@ -31,7 +31,7 @@ def index():
 def submitGuess():
     guess = request.form["guess"]
     score = request.form["score"]
-    print(f"Received guess, score: {guess} {score}")
+    #  print(f"Received guess, score: {guess} {score}")
     solver.inputGuess(guess, score)
 
     return index()

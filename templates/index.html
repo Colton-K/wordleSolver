@@ -2,54 +2,35 @@
 	<head>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<meta charset="utf-8">
-   		 <title>Wordle Solver</title>
-		 <link rel="icon" type="image/png" href="https://i.ibb.co/SdxwqHd/Untitled-design-1-removebg-preview.png"/>
- 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+   		<title>Semantle Solver</title>
 	</head>
 
 	<body >	
-		<div id="container">
-    			<div id="texts" style="float:centre">
-				<div id="texts">
-				<h1 style="font-family:verdana;font-size:500%;color:white;"><center>Worldle Solver</center></h1>
-				</div>
-    			</div>
-		</div>
-		<form action="submitGuess" method="POST">
-		<h1><center><label for="guess">Guess:</label>
-			<input id="guess" placeholder="enter text" style="height:50px; width:100px;" type="text" minlength="1" name="guess"></input>
-		</center></h1>
-		<h1><center><label for="score">Score:</label>
-			<input id="score" size="4" placeholder="score" style="height:50px; width:100px;" type="text"  name="score"></input>
-		</center></h1>
-		<br></br>
-		<div>
-			<button name="submit" id="sub" type="Submit" title="SEARCH">SUBMIT</button>
-		</div>
-		<br />
-		</form>
+        <h1>SemantleSolver</h1>
+        <div id="container">
+            <form action="submitGuess" method="POST">
+                <input id="guess" type="text" placeholder="Guess" minlength="1" name="guess"/>
+                <br>
+                <input id="score" type="text" placeholder="Score" minlength="1" name="score"/>
+                <br>
+                <button name="submit" id="sub" type="Submit" title="SEARCH">SUBMIT</button>
+            </form>
+        </div>
 
-        {% if haveGuesses %}
-        <h2>Guesses:</h2>            
-        {% endif %}
-        {% for guess in guesses %}
-        <div2><center>
-            <p> {{guess}} </p>
-        </center></div2>
-        {% endfor %}
+        <div id="container">
+            <form action="reset">
+                <button name="reset" id="sub" type="Submit" title="RESET">RESET</button>
+            </form>
+        </div>
+
+        <div id="container">
+            {% if haveGuesses %}
+                <h2>Guesses:</h2>            
+                {% for guess in guesses %}
+                <p> {{guess}} </p>
+                {% endfor %}
+            {% endif %}
+        </div>
 
 	</body>
 </html>
-
-<style>
-body  {
-	background-image: url('https://i.ibb.co/mbgpFyz/image.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-  	background-attachment: fixed;
-  	overflow: scroll;
-	background-position: center;
-}
-</style>
