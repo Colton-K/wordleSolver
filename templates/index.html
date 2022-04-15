@@ -3,34 +3,45 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<meta charset="utf-8">
    		<title>Semantle Solver</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 	</head>
 
-	<body >	
-        <h1>SemantleSolver</h1>
+	<body>	
+        <center>
+        <div style="width: 80%;border-radius: 25px;margin-top: 1%;margin-bottom: 10px;padding-bottom: 10px;background-color: white;">
+
+        <center>
+        <h1 style=" color: #0C2340;font-size: 500%;padding-top: 10px;">SemantleSolver</h1>
+        <center>
+
         <div id="container">
-            <form action="submitGuess" method="POST">
-                <input id="guess" type="text" placeholder="Guess" minlength="1" name="guess"/>
+            <form action="submitGuess" method="POST" class="form">
+                <input id="guess" type="text" placeholder="Guess" minlength="1" name="guess" style="background-color: white; color: #0C2340; padding: 16px 32px; text-decoration: inherit; margin: 4px 2px; text-align: center; cursor: pointer;" />
                 <br>
-                <input id="score" type="text" placeholder="Score" minlength="1" name="score"/>
+                <input id="score" type="text" placeholder="Score" minlength="1" name="score" style="background-color: white; color: #0C2340; padding: 16px 32px; text-decoration: inherit; margin: 4px 2px; text-align: center; cursor: pointer;margin-bottom: 10px;" />
                 <br>
-                <button name="submit" id="sub" type="Submit" title="SEARCH">SUBMIT</button>
+                <button name="submit" id="sub" type="Submit" title="SEARCH" style="background-color: #0C2340; color: white; padding: 16px 32px; text-decoration: inherit; margin: 4px 2px; text-align: center; cursor: pointer;border-radius: 50px; border-color: #0C2340;">SUBMIT</button>
             </form>
         </div>
 
-        <div id="container">
-            <form action="reset">
-                <button name="reset" id="sub" type="Submit" title="RESET">RESET</button>
-            </form>
-        </div>
-
-        <div id="container">
-            {% if haveGuesses %}
-                <h2>Guesses:</h2>            
+        {% if haveGuesses %}
+            <h2 style=" color: #0C2340;font-size: 300%;">Guesses:</h2>            
+                
+            <div >
                 {% for guess in guesses %}
-                <p> {{guess}} </p>
+                    <p> {{guess}} </p>
                 {% endfor %}
-            {% endif %}
-        </div>
+            </div> 
 
+            <div id="container">
+                <form action="reset">
+                    <button name="reset" id="sub" type="Submit" title="RESET" style="background-color: #0C2340; color: white; padding: 16px 32px; text-decoration: inherit; margin: 4px 2px; text-align: center; cursor: pointer;border-radius: 50px; border-color: #0C2340;">RESET</button>
+                </form>
+            </div>
+
+        {% endif %}
+
+        </div>
+        </center>
 	</body>
 </html>

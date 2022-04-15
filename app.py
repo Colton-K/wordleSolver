@@ -22,9 +22,10 @@ def getIP():
         s.close()
     return IP
 
-@app.route("/")
+@app.route("/")  #[#number: word,number: word]
 def index():
-    guesses = solver.getCandidates(5)
+    #guesses = solver.getCandidates(5)
+    guesses = ["number: word","number: word"]
     return render_template(base, guesses=guesses, haveGuesses=(len(guesses)>0))
 
 @app.route("/submitGuess", methods=["POST"])
