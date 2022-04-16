@@ -1,0 +1,16 @@
+body {
+	background-color: #0C2340;
+}
+
+.titlename {
+	color: #0C2340;
+	font-size: 500%;
+	padding-top: 10px;
+}
+
+.subtitlename {
+	color: white;
+	font-size: 300%;
+	padding-top: 10px;
+}
+
