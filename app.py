@@ -29,8 +29,7 @@ def getIP():
 
 @app.route("/")  #[#number: word,number: word]
 def index():
-    #guesses = solver.getCandidates(5)
-    guesses = ["number: word","number: word"]
+    guesses = semantleSolver.getCandidates(5)
     return render_template(base, guesses=guesses, haveGuesses=(len(guesses)>0))
 
 @app.route("/submitGuess", methods=["POST"])
@@ -55,6 +54,7 @@ def reset():
 
     return index()
 
+"""
 @app.route("/setPuzzle", method=["POST"])
 def setPuzzle():
     global puzzle
@@ -64,8 +64,9 @@ def setPuzzle():
         puzzle = "wordle"
     elif suggested == "semantle":
         puzzle = "semantle"
-    
+
     return index()
+"""
 
 def main():
     if puzzle == "semantle":
