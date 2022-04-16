@@ -36,6 +36,10 @@ def index():
 def submitGuess():
     guess = request.form["guess"]
     score = request.form["score"]
+
+    if not guess or not score:
+        return index()
+
     #  print(f"Received guess, score: {guess} {score}")
     if puzzle == "semantle":
         semantleSolver.inputGuess(guess, score)
@@ -46,6 +50,8 @@ def submitGuess():
 
 @app.route("/reset")
 def reset():
+    #  semantleSolver.loadVec()
+    #  semantleSolver.loadWords()
     if puzzle == "semantle":
         semantleSolver.loadVec()
         semantleSolver.loadWords()

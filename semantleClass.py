@@ -19,6 +19,8 @@ class SemantleSolver:
         #  print("Vectors loaded!")
 
     def loadWords(self):
+        self.candidates = []
+
         if not self.vecs:
             self.loadVec()
 
