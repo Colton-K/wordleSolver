@@ -29,7 +29,20 @@
                 
             <div >
                 {% for guess in guesses %}
-                    <p> {{guess}} </p>
+                    <table style="width: 40%;">
+                        <tr>
+                            <td style="width: 50%;">
+                                <center>
+                                <p style="font-size: 200%;"> {{guess[0]}} </p>
+                                </center>
+                            </td>
+                            <td style="">
+                                <center>
+                                <p style="font-size: 200%;color: green"> {{guess[1]}} </p>
+                                </center>
+                            </td>
+                        </tr>
+                    </table>
                 {% endfor %}
             </div> 
 
