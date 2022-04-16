@@ -37,10 +37,12 @@ class SemantleSolver:
         self.words = words
 
     def getCandidates(self, k):
-        outlist = []
-        for i,entry in enumerate(self.candidates[:k]):
-            outlist.append(f"{i+1}: {entry[0]}")
-        return outlist
+        #  outlist = []
+        #  for i,entry in enumerate(self.candidates[:k]):
+            #  outlist.append(f"{i+1}: {entry[0]}")
+        #  return outlist
+
+        return self.candidates[:k]
 
     def inputGuess(self, guess, score):
         #  print("Searching...")
